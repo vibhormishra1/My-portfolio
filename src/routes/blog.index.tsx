@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { portfolio } from "@/data/portfolio-data";
 import { SiteNav, SiteFooter, SectionHeading, EmptyState } from "@/components/portfolio/Chrome";
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { title: "Blog — Vibhor Mishra" },

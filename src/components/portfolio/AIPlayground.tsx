@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 import { portfolio } from "@/data/portfolio-data";
 import { SectionHeading } from "./Chrome";
 
@@ -78,29 +79,40 @@ export function BlogPreview() {
           portfolio-data.ts → blog
         </div>
       ) : (
-        <div className="grid gap-4 md:grid-cols-3">
-          {posts.map((p) => (
-            <a
-              key={p.slug}
-              href={`/blog/${p.slug}`}
-              className="hairline group flex flex-col rounded-2xl bg-surface-elevated/40 p-6 transition-colors hover:bg-surface-elevated"
+        <>
+          <div className="grid gap-4 md:grid-cols-3">
+            {posts.map((p) => (
+              <Link
+                key={p.slug}
+                to="/blog/$slug"
+                params={{ slug: p.slug }}
+                className="hairline group flex flex-col rounded-2xl bg-surface-elevated/40 p-6 transition-colors hover:bg-surface-elevated"
+              >
+                <p className="font-mono text-xs text-brand">{p.date}</p>
+                <h3 className="mt-3 font-display text-lg text-foreground">{p.title}</h3>
+                <p className="mt-2 text-sm text-ink-muted">{p.excerpt}</p>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {p.tags.map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-full border border-hairline px-2 py-0.5 font-mono text-[10px] text-ink-muted"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-8 flex justify-center">
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 font-mono text-sm text-brand hover:underline"
             >
-              <p className="font-mono text-xs text-brand">{p.date}</p>
-              <h3 className="mt-3 font-display text-lg text-foreground">{p.title}</h3>
-              <p className="mt-2 text-sm text-ink-muted">{p.excerpt}</p>
-              <div className="mt-4 flex flex-wrap gap-1.5">
-                {p.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="rounded-full border border-hairline px-2 py-0.5 font-mono text-[10px] text-ink-muted"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </a>
-          ))}
-        </div>
+              See all posts →
+            </Link>
+          </div>
+        </>
       )}
     </section>
   );

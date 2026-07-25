@@ -1,4 +1,5 @@
 import type { PortfolioData } from "./portfolio-types";
+import { blogPosts } from "./blog-posts";
 import resumeAsset from "@/assets/resume.pdf.asset.json";
 
 // Single source of truth. Content sourced from Vibhor's resume + LinkedIn + GitHub.
@@ -620,112 +621,7 @@ export const portfolio: PortfolioData = {
   ],
 
   publications: [],
-  blog: [
-    {
-      slug: "what-is-agentic-ai",
-      title: "What is Agentic AI? A Developer's Guide to Autonomous LLM Systems",
-      excerpt:
-        "A technical overview of agentic AI for developers — how autonomous agents differ from plain LLM calls, the core building blocks (planning, tools, memory, orchestration), and lessons from building multi-agent systems like VEDA and MARG.",
-      date: "2026-01-15",
-      tags: ["Agentic AI", "LLM", "Multi-Agent Systems", "Engineering"],
-      body: `# What is Agentic AI? A Developer's Guide to Autonomous LLM Systems
-
-Agentic AI is the shift from *"prompt an LLM once, get a response"* to *"give an LLM a goal, and let it plan, call tools, observe results, and iterate until the goal is met."* If a chatbot is a function call, an agent is a program loop.
-
-## From LLMs to agents
-
-A vanilla LLM call is stateless: input → output. An **agent** adds three things on top:
-
-1. **A planning loop** — the model decides the next step from the current state.
-2. **Tools** — functions the model can call to affect the world (search, DB queries, code execution, APIs).
-3. **Memory** — short-term scratchpad plus long-term retrieval (usually via vector search / RAG).
-
-The canonical loop is:
-
-\`\`\`
-observe → think → act → observe → think → act → …
-\`\`\`
-
-Frameworks like the OpenAI Agents SDK, LangChain, and LangGraph all implement variants of this loop.
-
-## Single-agent vs multi-agent
-
-A **single agent** handles the whole task. A **multi-agent system** decomposes the task across specialized agents — a planner, a researcher, a critic, a coder — that coordinate through a shared protocol.
-
-In **VEDA**, I use turn-taking orchestration across four persona agents (PM, senior engineer, client, junior dev) with shared conversation memory to simulate real engineering workflows. In **MARG** (Google Solution Challenge 2026), four specialized agents (logistics, medical, relief, coordination) share a Firebase RTDB state machine, with a deterministic rule engine wrapping the LLM calls to prevent hallucination on safety-critical paths — that's the **neurosymbolic** part.
-
-## Core building blocks
-
-- **Reasoning** — chain-of-thought, ReAct, tree-of-thought. Which one you pick affects latency and cost.
-- **Tools** — typed function schemas the model calls. Keep them small and composable.
-- **Memory** — a vector store (Pinecone, FAISS) for long-term recall + a rolling window for short-term.
-- **Orchestration** — how you coordinate turns between agents. Options: turn-taking, supervisor-worker, blackboard, graph-based (LangGraph).
-- **Guardrails** — output validators, rate limits, cost budgets, and deterministic checks around anything safety-critical.
-
-## What breaks in production
-
-- **Unbounded loops.** Always cap iterations and token budgets.
-- **Hallucinated tool arguments.** Validate every tool input with a schema before executing.
-- **Silent context drift.** Persist state explicitly; don't rely on the model to remember across turns.
-- **Cost blowups.** Multi-agent systems can 10× your token usage. Cache aggressively; use small models for routing, big models for reasoning.
-
-## When to reach for agents
-
-Not everything needs an agent. Reach for one when the task has:
-
-- Open-ended state you can't fully script in advance
-- Multiple tool calls with dependencies between them
-- A verification step that benefits from a second agent critiquing the first
-
-For single-shot classification, extraction, or summarization, a plain LLM call is usually simpler, cheaper, and more reliable.
-
-## Where to start
-
-Build a minimal ReAct loop by hand before reaching for a framework — 100 lines of Python plus one tool. Once you feel the loop, drop in LangGraph or the OpenAI Agents SDK for structure. Everything I've shipped follows that pattern.
-`,
-    },
-
-    {
-      slug: "kachra-seth",
-      title: "Kachra Seth — Building an AI-Powered Urban Waste Ecosystem",
-      excerpt:
-        "How our team designed a 3-layer SaaS platform for Indian municipalities — AI waste classification, QR-based bin tracking, route optimization, and a Green Score system — winning ₹16,000 at Anveshana 2025.",
-      date: "2025-04-01",
-      tags: ["AI", "Computer Vision", "Civic Tech", "Hackathon"],
-      body: `# Kachra Seth — Building an AI-Powered Urban Waste Ecosystem
-
-*Winner · ₹16,000 · Anveshana 2025 Inter-College Tech Fest*
-
-## The problem
-India generates 62 million tonnes of waste annually, yet only 19% is scientifically treated and roughly 50% remains unsegregated. Municipalities lack real-time tracking, citizens lack clear guidance and incentives, and sanitation workers have no verifiable proof of collection. Existing hardware-heavy solutions are expensive and hard to scale.
-
-## What we built
-**Kachra Seth** is a digital waste ecosystem with three integrated layers:
-
-1. **Citizen Engagement Layer** — A mobile AI camera classifies waste into seven categories (Plastic, Paper, Metal, Glass, Organic, E-waste, Hazardous), sends collection reminders, lets residents report issues, and rewards correct segregation with points and badges.
-2. **Municipal Operations Layer** — Sanitation workers scan QR codes on bins for proof of collection, supervisors see live bin status and vehicle GPS tracking, and an AI engine plans optimized collection routes.
-3. **Analytics & Policy Layer** — A Green Score formula ranks wards, benchmarks performance, and informs policy decisions.
-
-## The AI classifier
-The core classifier is a Convolutional Neural Network built on **DenseNet201**, trained on a dataset of 50,000+ Indian waste images. We chose DenseNet201 for parameter efficiency and strong feature reuse, which mattered given the diversity of Indian waste and lighting conditions.
-
-## Route optimization
-Collection routes are framed as a vehicle-routing problem. We use **Dijkstra's algorithm** for shortest-path sub-routines and a **genetic algorithm** to evolve efficient routes against real-time inputs: bin fill levels, vehicle capacity, and traffic. The model targets 30% fuel savings, 40% faster collections, and an 80% reduction in bin overflows.
-
-## QR-based tracking
-Each bin gets a durable, unique QR code costing ₹10–50. Citizens scan to verify disposal, workers scan to log collection, and supervisors audit service history. The scanner works offline and syncs later, which is critical in areas with patchy connectivity.
-
-## Green Score
-The score weights four metrics: segregation rate (40%), participation rate (25%), complaint-free days (20%), and special challenges (15%). It drives ward rankings, prize distribution, and performance benchmarking — turning environmental responsibility into measurable, community-level behavior change.
-
-## What I owned
-I led the system architecture, built the AI classification pipeline and FastAPI backend, and designed the route-optimization and Green Score modules. Teammates handled the React frontend, QR scanning flow, and the pitch deck. The IoT demo addition shown at the competition was a small hardware prototype built separately to illustrate the concept.
-
-## Result
-Won **₹16,000** at **Anveshana 2025**. The project taught me how to translate a civic problem into a production-shaped AI system: model selection, cost-aware scalability, offline-first design, and stakeholder incentives all had to work together.
-`,
-    },
-  ],
+  blog: blogPosts,
 
   aiPlaygroundResponses: [
     {
