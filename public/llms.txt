@@ -1,0 +1,23 @@
+# Vibhor Mishra
+
+> AI Systems Engineer building multi-agent orchestration systems, LLM-powered backends, and Agentic AI pipelines. Focus on agent coordination protocols, RAG architectures, and production-grade distributed systems.
+
+Portfolio site for Vibhor Mishra — a Computer Science undergraduate at SIRT Bhopal working on agentic AI, multi-agent systems, and applied ML. The site documents projects (VEDA, MARG, IRIS, DHARA, Kachra Seth), research interests, engineering skills, experience, and writing.
+
+## Pages
+
+- [Home](/): Overview, mission, timeline, highlight projects, skills graph, experience, and GitHub activity.
+- [Projects](/projects): AI systems, software products, and research prototypes with case studies.
+- [Blog](/blog): Notes on agentic AI, backend systems, and engineering practice.
+
+## Projects
+
+- [VEDA](/projects/veda): Multi-agent AI career simulation platform.
+- [MARG](/projects/marg): Neurosymbolic multi-agent crisis response system (Google Solution Challenge 2026).
+- [IRIS](/projects/iris): AI systems project.
+- [DHARA](/projects/dhara): Smart India Hackathon environmental project.
+
+## Blog
+
+- [Kachra Seth — Building an AI-Powered Urban Waste Ecosystem](/blog/kachra-seth): 3-layer SaaS platform with DenseNet201 waste classification and route optimization.
+- [What is Agentic AI?](/blog/what-is-agentic-ai): A technical overview for developers on the transition from LLMs to autonomous agentic systems.
