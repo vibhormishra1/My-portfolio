@@ -48,32 +48,30 @@ export function GithubActivity() {
       {data && (
         <div className="space-y-6">
           {/* Profile header */}
-          <div className="hairline flex flex-wrap items-center gap-6 rounded-2xl bg-surface-elevated/40 p-6">
-            {data.user && (
-              <>
-                <img
-                  src={data.user.avatar_url}
-                  alt={`${data.user.login} avatar`}
-                  width={72}
-                  height={72}
-                  loading="lazy"
-                  className="h-18 w-18 rounded-full border border-hairline"
-                  style={{ height: 72, width: 72 }}
-                />
-                <div className="flex-1">
-                  <h3 className="font-display text-xl text-foreground">
-                    {data.user.name ?? data.user.login}
-                  </h3>
-                  {data.user.bio && <p className="mt-1 text-sm text-ink-muted">{data.user.bio}</p>}
-                </div>
-                <div className="flex gap-6 font-mono text-xs text-ink-muted">
-                  <Stat label="Followers" value={data.user.followers} />
-                  <Stat label="Repos" value={data.user.public_repos} />
-                  <Stat label="Following" value={data.user.following} />
-                </div>
-              </>
-            )}
-          </div>
+          {data.user && (
+            <div className="hairline flex flex-wrap items-center gap-6 rounded-2xl bg-surface-elevated/40 p-6">
+              <img
+                src={data.user.avatar_url}
+                alt={`${data.user.login} avatar`}
+                width={72}
+                height={72}
+                loading="lazy"
+                className="h-18 w-18 rounded-full border border-hairline"
+                style={{ height: 72, width: 72 }}
+              />
+              <div className="flex-1">
+                <h3 className="font-display text-xl text-foreground">
+                  {data.user.name ?? data.user.login}
+                </h3>
+                {data.user.bio && <p className="mt-1 text-sm text-ink-muted">{data.user.bio}</p>}
+              </div>
+              <div className="flex gap-6 font-mono text-xs text-ink-muted">
+                <Stat label="Followers" value={data.user.followers} />
+                <Stat label="Repos" value={data.user.public_repos} />
+                <Stat label="Following" value={data.user.following} />
+              </div>
+            </div>
+          )}
 
           <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
             {/* Contribution graph */}

@@ -103,7 +103,6 @@ export function SectionHeading({
     <div id={id} className="mb-12 max-w-2xl scroll-mt-28">
       <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand">{eyebrow}</p>
       <Heading className="mt-3 font-display text-3xl leading-tight text-foreground md:text-5xl">{title}</Heading>
-      {description && <p className="mt-4 text-base text-ink-muted md:text-lg">{description}</p>}
     </div>
   );
 }
