@@ -18,9 +18,7 @@ function NotFoundComponent() {
       <div className="max-w-md text-center">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">404</p>
         <h1 className="mt-3 font-display text-3xl text-foreground">Page not found</h1>
-        <p className="mt-2 text-sm text-ink-muted">
-          The route you're looking for doesn't exist.
-        </p>
+        <p className="mt-2 text-sm text-ink-muted">The route you're looking for doesn't exist.</p>
         <div className="mt-6">
           <Link
             to="/"
@@ -45,9 +43,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="font-display text-xl text-foreground">This page didn't load</h1>
-        <p className="mt-2 text-sm text-ink-muted">
-          Something went wrong. Try again or head home.
-        </p>
+        <p className="mt-2 text-sm text-ink-muted">Something went wrong. Try again or head home.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {

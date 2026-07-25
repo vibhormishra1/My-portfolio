@@ -44,15 +44,13 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="mt-8 max-w-xl text-base text-ink-muted md:text-lg"
           >
-            I'm{" "}
-            <span className="text-foreground">{portfolio.personal.name}</span> — a Computer Science
-            undergraduate working on{" "}
-            <span className="text-foreground">Agentic AI</span>,{" "}
+            I'm <span className="text-foreground">{portfolio.personal.name}</span> — a Computer
+            Science undergraduate working on <span className="text-foreground">Agentic AI</span>,{" "}
             <span className="text-foreground">Multi-Agent Systems</span>,{" "}
             <span className="text-foreground">LLM Applications</span>,{" "}
             <span className="text-foreground">Backend Engineering</span>, and{" "}
-            <span className="text-foreground">Full-Stack Development</span>. Building products
-            from research to production.
+            <span className="text-foreground">Full-Stack Development</span>. Building products from
+            research to production.
           </motion.p>
 
           <motion.div
@@ -126,13 +124,22 @@ function RotatingWord() {
             key={w}
             className="absolute inset-0 whitespace-nowrap bg-gradient-to-r from-brand to-brand-muted bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 20 }}
-            animate={reduced ? { opacity: i === 0 ? 1 : 0 } : {
-              opacity: [0, 1, 1, 0],
-              y: [20, 0, 0, -20],
-            }}
+            animate={
+              reduced
+                ? { opacity: i === 0 ? 1 : 0 }
+                : {
+                    opacity: [0, 1, 1, 0],
+                    y: [20, 0, 0, -20],
+                  }
+            }
             transition={{
               duration: words.length * 2,
-              times: [i / words.length, (i + 0.05) / words.length, (i + 0.95) / words.length, (i + 1) / words.length],
+              times: [
+                i / words.length,
+                (i + 0.05) / words.length,
+                (i + 0.95) / words.length,
+                (i + 1) / words.length,
+              ],
               repeat: Infinity,
               ease: "easeInOut",
             }}

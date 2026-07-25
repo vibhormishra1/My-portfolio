@@ -28,14 +28,21 @@ export function AgentNodes({ className = "" }: { className?: string }) {
     { id: "n8", x: 0.5, y: 0.4, r: 8, label: "core" },
   ];
   const edges: [string, string][] = [
-    ["n1", "n2"], ["n2", "n3"], ["n1", "n4"], ["n2", "n8"],
-    ["n3", "n8"], ["n4", "n8"], ["n5", "n8"], ["n4", "n5"],
-    ["n6", "n4"], ["n7", "n5"], ["n6", "n8"], ["n7", "n8"],
+    ["n1", "n2"],
+    ["n2", "n3"],
+    ["n1", "n4"],
+    ["n2", "n8"],
+    ["n3", "n8"],
+    ["n4", "n8"],
+    ["n5", "n8"],
+    ["n4", "n5"],
+    ["n6", "n4"],
+    ["n7", "n5"],
+    ["n6", "n8"],
+    ["n7", "n8"],
   ];
 
-  const pos = Object.fromEntries(
-    nodes.map((n) => [n.id, { x: n.x * size.w, y: n.y * size.h }]),
-  );
+  const pos = Object.fromEntries(nodes.map((n) => [n.id, { x: n.x * size.w, y: n.y * size.h }]));
 
   return (
     <div className={`relative h-full w-full ${className}`}>
@@ -46,20 +53,33 @@ export function AgentNodes({ className = "" }: { className?: string }) {
             <stop offset="100%" stopColor="oklch(0.72 0.14 250)" stopOpacity="0" />
           </radialGradient>
         </defs>
-        <circle cx={size.w / 2} cy={size.h / 2} r={Math.min(size.w, size.h) * 0.35} fill="url(#glow)" />
+        <circle
+          cx={size.w / 2}
+          cy={size.h / 2}
+          r={Math.min(size.w, size.h) * 0.35}
+          fill="url(#glow)"
+        />
         {edges.map(([a, b], i) => {
-          const p1 = pos[a], p2 = pos[b];
+          const p1 = pos[a],
+            p2 = pos[b];
           if (!p1 || !p2) return null;
           return (
             <motion.line
               key={i}
-              x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y}
+              x1={p1.x}
+              y1={p1.y}
+              x2={p2.x}
+              y2={p2.y}
               stroke="oklch(0.72 0.14 250)"
               strokeOpacity={0.18}
               strokeWidth={0.8}
               initial={{ pathLength: 0 }}
               animate={reduced ? { pathLength: 1 } : { pathLength: [0.2, 1, 0.2] }}
-              transition={{ duration: 5 + i * 0.3, repeat: reduced ? 0 : Infinity, ease: "easeInOut" }}
+              transition={{
+                duration: 5 + i * 0.3,
+                repeat: reduced ? 0 : Infinity,
+                ease: "easeInOut",
+              }}
             />
           );
         })}

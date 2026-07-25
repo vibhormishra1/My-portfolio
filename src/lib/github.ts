@@ -34,7 +34,7 @@ export type GhEvent = {
   type: string;
   created_at: string;
   repo: { name: string; url: string };
-  payload: any;
+  payload: Record<string, unknown>;
 };
 
 export type PinnedRepo = {

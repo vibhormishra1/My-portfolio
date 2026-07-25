@@ -4,7 +4,16 @@ import { SectionHeading } from "./Chrome";
 
 type Line = { kind: "in" | "out"; text: string };
 
-const COMMANDS = ["about", "projects", "resume", "contact", "skills", "github", "help", "clear"] as const;
+const COMMANDS = [
+  "about",
+  "projects",
+  "resume",
+  "contact",
+  "skills",
+  "github",
+  "help",
+  "clear",
+] as const;
 type Cmd = (typeof COMMANDS)[number];
 
 function runCommand(cmd: string): string[] {
@@ -28,7 +37,11 @@ function runCommand(cmd: string): string[] {
     case "skills":
       return [
         ...Array.from(new Set(portfolio.skills.map((s) => s.group))).map(
-          (g) => `${g}: ${portfolio.skills.filter((s) => s.group === g).map((s) => s.label).join(", ")}`,
+          (g) =>
+            `${g}: ${portfolio.skills
+              .filter((s) => s.group === g)
+              .map((s) => s.label)
+              .join(", ")}`,
         ),
       ];
     case "github":
@@ -64,7 +77,11 @@ export function ContactTerminal() {
     if (out[0] === "__CLEAR__") {
       setLines([]);
     } else {
-      setLines((prev) => [...prev, { kind: "in", text: cmd }, ...out.map<Line>((t) => ({ kind: "out", text: t }))]);
+      setLines((prev) => [
+        ...prev,
+        { kind: "in", text: cmd },
+        ...out.map<Line>((t) => ({ kind: "out", text: t })),
+      ]);
     }
     if (cmd) setHistory((h) => [cmd, ...h]);
     setHistoryIdx(-1);
@@ -87,7 +104,7 @@ export function ContactTerminal() {
       e.preventDefault();
       const next = Math.max(historyIdx - 1, -1);
       setHistoryIdx(next);
-      setInput(next === -1 ? "" : history[next] ?? "");
+      setInput(next === -1 ? "" : (history[next] ?? ""));
     } else if (e.key === "Tab") {
       e.preventDefault();
       const match = COMMANDS.find((c) => c.startsWith(input.toLowerCase()));
@@ -123,7 +140,9 @@ export function ContactTerminal() {
                 <span>{l.text}</span>
               </div>
             ) : (
-              <div key={i} className="whitespace-pre-wrap text-ink-muted">{l.text}</div>
+              <div key={i} className="whitespace-pre-wrap text-ink-muted">
+                {l.text}
+              </div>
             ),
           )}
           <div className="mt-1 flex items-center">
@@ -145,15 +164,28 @@ export function ContactTerminal() {
 
       {/* Accessibility fallback */}
       <div className="mt-6 grid gap-3 text-sm text-ink-muted md:grid-cols-3">
-        <a href={`mailto:${portfolio.personal.email}`} className="hairline rounded-xl p-3 hover:bg-surface-elevated">
+        <a
+          href={`mailto:${portfolio.personal.email}`}
+          className="hairline rounded-xl p-3 hover:bg-surface-elevated"
+        >
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand">Email</p>
           <p className="mt-1 text-foreground">{portfolio.personal.email}</p>
         </a>
-        <a href={portfolio.socials.github} target="_blank" rel="noopener noreferrer" className="hairline rounded-xl p-3 hover:bg-surface-elevated">
+        <a
+          href={portfolio.socials.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hairline rounded-xl p-3 hover:bg-surface-elevated"
+        >
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand">GitHub</p>
           <p className="mt-1 text-foreground">@{portfolio.personal.handle}</p>
         </a>
-        <a href={portfolio.socials.linkedin} target="_blank" rel="noopener noreferrer" className="hairline rounded-xl p-3 hover:bg-surface-elevated">
+        <a
+          href={portfolio.socials.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hairline rounded-xl p-3 hover:bg-surface-elevated"
+        >
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand">LinkedIn</p>
           <p className="mt-1 text-foreground">/in/vibhormishra1</p>
         </a>

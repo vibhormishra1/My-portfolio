@@ -6,9 +6,15 @@ export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
       { title: "Blog — Vibhor Mishra" },
-      { name: "description", content: "Notes on agentic AI, backend systems, and engineering practice." },
+      {
+        name: "description",
+        content: "Notes on agentic AI, backend systems, and engineering practice.",
+      },
       { property: "og:title", content: "Blog — Vibhor Mishra" },
-      { property: "og:description", content: "Notes on agentic AI, backend systems, and engineering practice." },
+      {
+        property: "og:description",
+        content: "Notes on agentic AI, backend systems, and engineering practice.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/blog" },
     ],

@@ -16,17 +16,26 @@ export function Experience() {
                 <h3 className="font-display text-xl text-foreground">
                   {e.role} <span className="text-ink-muted">· {e.company}</span>
                 </h3>
-                <span className="font-mono text-xs text-ink-muted">{e.start} – {e.end ?? "Present"}</span>
+                <span className="font-mono text-xs text-ink-muted">
+                  {e.start} – {e.end ?? "Present"}
+                </span>
               </div>
               {e.bullets && (
                 <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-ink-muted">
-                  {e.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                  {e.bullets.map((b, j) => (
+                    <li key={j}>{b}</li>
+                  ))}
                 </ul>
               )}
               {e.stack && e.stack.length > 0 && (
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {e.stack.map((s) => (
-                    <span key={s} className="rounded-full border border-hairline px-2 py-0.5 font-mono text-[10px] text-ink-muted">{s}</span>
+                    <span
+                      key={s}
+                      className="rounded-full border border-hairline px-2 py-0.5 font-mono text-[10px] text-ink-muted"
+                    >
+                      {s}
+                    </span>
                   ))}
                 </div>
               )}
@@ -50,7 +59,9 @@ export function Education() {
             <div key={i} className="hairline rounded-2xl p-6">
               <h3 className="font-display text-lg text-foreground">{e.school}</h3>
               <p className="text-sm text-ink-muted">{e.degree}</p>
-              <p className="mt-2 font-mono text-xs text-ink-muted">{e.start} – {e.end ?? "Present"}</p>
+              <p className="mt-2 font-mono text-xs text-ink-muted">
+                {e.start} – {e.end ?? "Present"}
+              </p>
               {e.notes && <p className="mt-2 text-sm text-ink-muted">{e.notes}</p>}
             </div>
           ))}
@@ -63,7 +74,11 @@ export function Education() {
 export function Hackathons() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-24">
-      <SectionHeading eyebrow="Hackathons" title="Where I've built under pressure" id="hackathons" />
+      <SectionHeading
+        eyebrow="Hackathons"
+        title="Where I've built under pressure"
+        id="hackathons"
+      />
       {portfolio.hackathons.length === 0 ? (
         <EmptyState label="Add hackathons to portfolio-data.ts → hackathons" />
       ) : (
@@ -182,7 +197,9 @@ export function Certifications() {
             if (inCat.length === 0) return null;
             return (
               <div key={cat}>
-                <h3 className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-brand">{cat}</h3>
+                <h3 className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-brand">
+                  {cat}
+                </h3>
                 <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
                   {inCat.map((c, i) => (
                     <a
@@ -204,14 +221,18 @@ export function Certifications() {
         </div>
       ) : (
         <ol className="relative border-l border-hairline pl-8">
-          {[...items].sort((a, b) => (a.year ?? "").localeCompare(b.year ?? "")).map((c, i) => (
-            <li key={i} className="relative mb-6">
-              <span className="absolute -left-[37px] top-1.5 h-2 w-2 rounded-full bg-brand" />
-              <p className="font-mono text-xs text-brand">{c.year}</p>
-              <p className="mt-1 text-sm text-foreground">{c.name}</p>
-              <p className="text-xs text-ink-muted">{c.issuer} · {c.category}</p>
-            </li>
-          ))}
+          {[...items]
+            .sort((a, b) => (a.year ?? "").localeCompare(b.year ?? ""))
+            .map((c, i) => (
+              <li key={i} className="relative mb-6">
+                <span className="absolute -left-[37px] top-1.5 h-2 w-2 rounded-full bg-brand" />
+                <p className="font-mono text-xs text-brand">{c.year}</p>
+                <p className="mt-1 text-sm text-foreground">{c.name}</p>
+                <p className="text-xs text-ink-muted">
+                  {c.issuer} · {c.category}
+                </p>
+              </li>
+            ))}
         </ol>
       )}
     </section>

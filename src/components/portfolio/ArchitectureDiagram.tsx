@@ -29,7 +29,9 @@ export function ArchitectureDiagram({ view }: { view: ArchitectureView }) {
     rows[r] = rows[r] ?? [];
     rows[r].push(n);
   }
-  const rowKeys = Object.keys(rows).map(Number).sort((a, b) => a - b);
+  const rowKeys = Object.keys(rows)
+    .map(Number)
+    .sort((a, b) => a - b);
   const H = rowKeys.length * rowHeight + 40;
 
   const pos: Record<string, { x: number; y: number; w: number }> = {};
@@ -45,7 +47,8 @@ export function ArchitectureDiagram({ view }: { view: ArchitectureView }) {
     <div className="hairline overflow-x-auto rounded-2xl bg-surface-elevated/40 p-4">
       <svg viewBox={`0 0 ${W} ${H}`} className="min-w-full">
         {view.edges.map((e, i) => {
-          const a = pos[e.from], b = pos[e.to];
+          const a = pos[e.from],
+            b = pos[e.to];
           if (!a || !b) return null;
           const midY = (a.y + b.y) / 2;
           return (
@@ -58,7 +61,14 @@ export function ArchitectureDiagram({ view }: { view: ArchitectureView }) {
                 strokeWidth={1.2}
               />
               {e.label && (
-                <text x={(a.x + b.x) / 2} y={midY} textAnchor="middle" className="fill-current font-mono" fontSize={9} fill="oklch(0.68 0.01 260)">
+                <text
+                  x={(a.x + b.x) / 2}
+                  y={midY}
+                  textAnchor="middle"
+                  className="fill-current font-mono"
+                  fontSize={9}
+                  fill="oklch(0.68 0.01 260)"
+                >
                   {e.label}
                 </text>
               )}
@@ -70,10 +80,31 @@ export function ArchitectureDiagram({ view }: { view: ArchitectureView }) {
           const color = LAYER_COLORS[n.layer];
           return (
             <g key={n.id} transform={`translate(${p.x - p.w / 2}, ${p.y - 22})`}>
-              <rect width={p.w} height={44} rx={10} fill="oklch(0.19 0.006 260)" stroke={color} strokeOpacity={0.5} />
+              <rect
+                width={p.w}
+                height={44}
+                rx={10}
+                fill="oklch(0.19 0.006 260)"
+                stroke={color}
+                strokeOpacity={0.5}
+              />
               <circle cx={12} cy={22} r={4} fill={color} />
-              <text x={24} y={20} className="fill-foreground" fontSize={12} fontFamily="Geist, Inter">{n.label}</text>
-              <text x={24} y={34} fontSize={9} fontFamily="IBM Plex Mono" fill="oklch(0.68 0.01 260)">
+              <text
+                x={24}
+                y={20}
+                className="fill-foreground"
+                fontSize={12}
+                fontFamily="Geist, Inter"
+              >
+                {n.label}
+              </text>
+              <text
+                x={24}
+                y={34}
+                fontSize={9}
+                fontFamily="IBM Plex Mono"
+                fill="oklch(0.68 0.01 260)"
+              >
                 {n.layer}
               </text>
             </g>

@@ -51,4 +51,4 @@ Please confirm:
 
 1. You want me to proceed with publishing now.
 2. Your workspace is on a Pro plan (or higher) so I can hide the badge.
-3. You will add the DNS records at your domain registrar, or you want step-by-step instructions only. 
+3. You will add the DNS records at your domain registrar, or you want step-by-step instructions only.

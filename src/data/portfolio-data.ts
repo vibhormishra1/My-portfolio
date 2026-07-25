@@ -25,11 +25,37 @@ export const portfolio: PortfolioData = {
     "I care about the systems behind intelligent software — the reasoning loops, the data plumbing, and the guardrails that make an agent actually useful in production. My work sits between research and engineering: designing multi-agent architectures, then wiring them into real backends with FastAPI, Firebase, and Python that ship.",
 
   timeline: [
-    { year: "2023", title: "Started B.Tech CSE at SIRT", description: "Foundations in DSA, OS, DBMS, and software engineering.", tag: "Education" },
-    { year: "2023", title: "AI Intern at RineX.Ai", description: "Built end-to-end ML pipelines with PyTorch and scikit-learn; early exposure to GenAI architectures.", tag: "AI" },
-    { year: "2024", title: "IIT Mandi Minor in CSE", description: "Advanced technologies minor via CCE × NSDC × Masai School.", tag: "Education" },
-    { year: "2025", title: "Agentic AI focus", description: "Multi-agent orchestration, LLM integration, and neurosymbolic reasoning.", tag: "Research" },
-    { year: "2026", title: "Shipping production AI systems", description: "VEDA, MARG (Google Solution Challenge), IRIS, DHARA (SIH).", tag: "Shipping" },
+    {
+      year: "2023",
+      title: "Started B.Tech CSE at SIRT",
+      description: "Foundations in DSA, OS, DBMS, and software engineering.",
+      tag: "Education",
+    },
+    {
+      year: "2023",
+      title: "AI Intern at RineX.Ai",
+      description:
+        "Built end-to-end ML pipelines with PyTorch and scikit-learn; early exposure to GenAI architectures.",
+      tag: "AI",
+    },
+    {
+      year: "2024",
+      title: "IIT Mandi Minor in CSE",
+      description: "Advanced technologies minor via CCE × NSDC × Masai School.",
+      tag: "Education",
+    },
+    {
+      year: "2025",
+      title: "Agentic AI focus",
+      description: "Multi-agent orchestration, LLM integration, and neurosymbolic reasoning.",
+      tag: "Research",
+    },
+    {
+      year: "2026",
+      title: "Shipping production AI systems",
+      description: "VEDA, MARG (Google Solution Challenge), IRIS, DHARA (SIH).",
+      tag: "Shipping",
+    },
   ],
 
   currentlyBuilding: [
@@ -85,7 +111,15 @@ export const portfolio: PortfolioData = {
       category: "AI Systems",
       status: "In Progress",
       year: "2026",
-      stack: ["Python", "FastAPI", "Gemini 2.0 Flash", "Firebase RTDB", "React", "TypeScript", "Railway"],
+      stack: [
+        "Python",
+        "FastAPI",
+        "Gemini 2.0 Flash",
+        "Firebase RTDB",
+        "React",
+        "TypeScript",
+        "Railway",
+      ],
       overview:
         "Google Solution Challenge 2026 entry. Four specialized LLM agents — logistics, medical, relief, coordination — operate on a shared Firebase RTDB state machine with a deterministic rule engine for conflict resolution.",
       approach:
@@ -128,7 +162,16 @@ export const portfolio: PortfolioData = {
       tagline: "Voice-First Multilingual Internship Portal for Rural India",
       category: "Software Products",
       status: "Shipped",
-      stack: ["React", "Vite", "FastAPI", "Python", "MongoDB", "Redis", "i18next", "Web Speech API"],
+      stack: [
+        "React",
+        "Vite",
+        "FastAPI",
+        "Python",
+        "MongoDB",
+        "Redis",
+        "i18next",
+        "Web Speech API",
+      ],
       overview:
         "Full-stack PWA that connects rural youth to internship opportunities through a voice-first, multilingual (English/Hindi/Tamil) interface — designed for users with limited digital literacy.",
       approach:
@@ -139,7 +182,10 @@ export const portfolio: PortfolioData = {
         "FastAPI + MongoDB matching engine with Redis-backed scoring",
         "Installable PWA with accessible fallback form",
       ],
-      links: { github: "https://github.com/akshayvarma121/skill-bridge", demo: "https://skill-bridge-ten-dusky.vercel.app/" },
+      links: {
+        github: "https://github.com/akshayvarma121/skill-bridge",
+        demo: "https://skill-bridge-ten-dusky.vercel.app/",
+      },
       architecture: [],
     },
     {
@@ -149,7 +195,16 @@ export const portfolio: PortfolioData = {
       category: "AI Systems",
       status: "Shipped",
       year: "2025",
-      stack: ["Python", "TensorFlow", "DenseNet201", "FastAPI", "React", "TypeScript", "Tailwind CSS", "Vite"],
+      stack: [
+        "Python",
+        "TensorFlow",
+        "DenseNet201",
+        "FastAPI",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Vite",
+      ],
       overview:
         "A digital waste ecosystem for Indian municipalities. Citizens use an AI camera to classify waste into seven categories; sanitation workers scan QR codes on bins for verified collection; and municipalities track routes, complaints, and a Green Score that ranks ward performance. Won ₹16,000 at Anveshana 2025.",
       approach:
@@ -166,7 +221,10 @@ export const portfolio: PortfolioData = {
         "Live bin status, vehicle GPS tracking, and AI-driven route optimization",
         "Green Score ward rankings with rewards and performance benchmarking",
       ],
-      links: { github: "https://github.com/akshayvarma121/kachra-seth", demo: "https://kachra-seth.vercel.app/" },
+      links: {
+        github: "https://github.com/akshayvarma121/kachra-seth",
+        demo: "https://kachra-seth.vercel.app/",
+      },
       architecture: [],
     },
     {
@@ -197,22 +255,46 @@ export const portfolio: PortfolioData = {
   ],
 
   research: [
-    { title: "Agentic AI & Multi-Agent Systems", blurb: "Agent orchestration, planning, tool-use, and memory." },
-    { title: "Neurosymbolic AI", blurb: "Hybrid LLM + rule-based reasoning for safety-critical decisions." },
-    { title: "Retrieval-Augmented Generation", blurb: "Hybrid retrieval, evaluation, and grounding." },
-    { title: "LLM Application Design", blurb: "Prompt architectures, guardrails, and observability." },
-    { title: "Backend Systems for AI", blurb: "Async serving, distributed state, and real-time coordination." },
+    {
+      title: "Agentic AI & Multi-Agent Systems",
+      blurb: "Agent orchestration, planning, tool-use, and memory.",
+    },
+    {
+      title: "Neurosymbolic AI",
+      blurb: "Hybrid LLM + rule-based reasoning for safety-critical decisions.",
+    },
+    {
+      title: "Retrieval-Augmented Generation",
+      blurb: "Hybrid retrieval, evaluation, and grounding.",
+    },
+    {
+      title: "LLM Application Design",
+      blurb: "Prompt architectures, guardrails, and observability.",
+    },
+    {
+      title: "Backend Systems for AI",
+      blurb: "Async serving, distributed state, and real-time coordination.",
+    },
   ],
 
   systemDesignAreas: [
     { title: "Distributed Systems", description: "Consistency, partitioning, and failure modes." },
-    { title: "Event-driven Architecture", description: "Queues, streams, and eventual consistency." },
+    {
+      title: "Event-driven Architecture",
+      description: "Queues, streams, and eventual consistency.",
+    },
     { title: "Vector Databases", description: "Indexing, hybrid search, and retrieval quality." },
     { title: "RAG Pipelines", description: "Chunking, re-ranking, evaluation, guardrails." },
-    { title: "Agent Orchestration", description: "Planners, routers, memory, and human-in-the-loop." },
+    {
+      title: "Agent Orchestration",
+      description: "Planners, routers, memory, and human-in-the-loop.",
+    },
     { title: "Backend Design", description: "API contracts, auth, jobs, and observability." },
     { title: "Database Design", description: "Normalization, indexes, and migrations." },
-    { title: "Authentication", description: "Sessions, tokens, JWT rotation, and role-based access." },
+    {
+      title: "Authentication",
+      description: "Sessions, tokens, JWT rotation, and role-based access.",
+    },
     { title: "API Design", description: "REST, RPC, and typed contracts." },
   ],
 
@@ -384,7 +466,8 @@ export const portfolio: PortfolioData = {
       degree: "B.Tech, Computer Science & Engineering",
       start: "Aug 2023",
       end: "May 2027",
-      notes: "Current CGPA (5th semester): 7.75. Coursework: Data Structures & Algorithms, OS, Computer Networks, DBMS, Software Engineering, OOP.",
+      notes:
+        "Current CGPA (5th semester): 7.75. Coursework: Data Structures & Algorithms, OS, Computer Networks, DBMS, Software Engineering, OOP.",
     },
     {
       school: "IIT Mandi — CCE × NSDC × Masai School",
@@ -433,13 +516,15 @@ export const portfolio: PortfolioData = {
       name: "Software Engineering",
       provider: "JPMorgan Chase & Co. (Forage)",
       year: "May 2026",
-      notes: "Project setup, Apache Kafka integration, H2 in-memory DB, REST API design and controller implementation.",
+      notes:
+        "Project setup, Apache Kafka integration, H2 in-memory DB, REST API design and controller implementation.",
     },
     {
       name: "Advanced Software Engineering",
       provider: "Walmart Global Tech (Forage)",
       year: "Jun 2026",
-      notes: "Advanced data structures, software architecture design patterns, relational schema design, data munging.",
+      notes:
+        "Advanced data structures, software architecture design patterns, relational schema design, data munging.",
     },
     {
       name: "Software Engineering",
@@ -450,24 +535,88 @@ export const portfolio: PortfolioData = {
   ],
 
   certifications: [
-    { name: "Oracle Certified Foundations Associate — Agentic AI", issuer: "Oracle University", category: "AI & Agentic AI", year: "2026" },
-    { name: "RAG for Enhanced AI Outputs", issuer: "IBM SkillsBuild", category: "AI & Agentic AI", year: "2026" },
-    { name: "Gemini Certified — University Student", issuer: "Google", category: "AI & Agentic AI", year: "2025" },
-    { name: "ML Applications with Agentic AI", issuer: "SAGE Summer School", category: "AI & Agentic AI", year: "2026" },
-    { name: "Agentic AI: Principles & Practice", issuer: "SAGE Winter School", category: "AI & Agentic AI", year: "2026" },
-    { name: "NPTEL Elite — Programming in Java (83%)", issuer: "IIT Kharagpur", category: "Programming", year: "2025" },
-    { name: "NPTEL — Database Management Systems", issuer: "IIT Kharagpur", category: "Programming", year: "2026" },
-    { name: "DSA with Java — Alpha Course", issuer: "Apna College", category: "Programming", year: "2025" },
-    { name: "JPMorgan Chase — Software Engineering", issuer: "Forage", category: "Industry Simulations", year: "2026" },
-    { name: "Walmart Global Tech — Advanced Software Engineering", issuer: "Forage", category: "Industry Simulations", year: "2026" },
-    { name: "Commonwealth Bank — Software Engineering", issuer: "Forage", category: "Industry Simulations", year: "2026" },
+    {
+      name: "Oracle Certified Foundations Associate — Agentic AI",
+      issuer: "Oracle University",
+      category: "AI & Agentic AI",
+      year: "2026",
+    },
+    {
+      name: "RAG for Enhanced AI Outputs",
+      issuer: "IBM SkillsBuild",
+      category: "AI & Agentic AI",
+      year: "2026",
+    },
+    {
+      name: "Gemini Certified — University Student",
+      issuer: "Google",
+      category: "AI & Agentic AI",
+      year: "2025",
+    },
+    {
+      name: "ML Applications with Agentic AI",
+      issuer: "SAGE Summer School",
+      category: "AI & Agentic AI",
+      year: "2026",
+    },
+    {
+      name: "Agentic AI: Principles & Practice",
+      issuer: "SAGE Winter School",
+      category: "AI & Agentic AI",
+      year: "2026",
+    },
+    {
+      name: "NPTEL Elite — Programming in Java (83%)",
+      issuer: "IIT Kharagpur",
+      category: "Programming",
+      year: "2025",
+    },
+    {
+      name: "NPTEL — Database Management Systems",
+      issuer: "IIT Kharagpur",
+      category: "Programming",
+      year: "2026",
+    },
+    {
+      name: "DSA with Java — Alpha Course",
+      issuer: "Apna College",
+      category: "Programming",
+      year: "2025",
+    },
+    {
+      name: "JPMorgan Chase — Software Engineering",
+      issuer: "Forage",
+      category: "Industry Simulations",
+      year: "2026",
+    },
+    {
+      name: "Walmart Global Tech — Advanced Software Engineering",
+      issuer: "Forage",
+      category: "Industry Simulations",
+      year: "2026",
+    },
+    {
+      name: "Commonwealth Bank — Software Engineering",
+      issuer: "Forage",
+      category: "Industry Simulations",
+      year: "2026",
+    },
   ],
 
   achievements: [
-    { title: "Won ₹16,000 — Kachra Seth (AI waste management platform), Anveshana 2025", year: "2025" },
-    { title: "6th Rank — SolveExpo'26 Startup Innovation Competition, JNCT Bhopal (AI & DS Dept.)", year: "2026" },
+    {
+      title: "Won ₹16,000 — Kachra Seth (AI waste management platform), Anveshana 2025",
+      year: "2025",
+    },
+    {
+      title: "6th Rank — SolveExpo'26 Startup Innovation Competition, JNCT Bhopal (AI & DS Dept.)",
+      year: "2026",
+    },
     { title: "Participant — Google Solution Challenge 2026 (MARG project)", year: "2026" },
-    { title: "4th Place · Won ₹2,000 — Tech-Sageathon 2K26, National-Level Hackathon, SIRT", year: "2026" },
+    {
+      title: "4th Place · Won ₹2,000 — Tech-Sageathon 2K26, National-Level Hackathon, SIRT",
+      year: "2026",
+    },
   ],
 
   publications: [],

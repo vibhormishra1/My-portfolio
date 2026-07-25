@@ -74,10 +74,15 @@ export function SkillsGraph() {
       ) : (
         <>
           <div className="mb-6 flex flex-wrap gap-2">
-            <FilterChip active={filter === "all"} onClick={() => setFilter("all")}>All</FilterChip>
+            <FilterChip active={filter === "all"} onClick={() => setFilter("all")}>
+              All
+            </FilterChip>
             {groups.map((g) => (
               <FilterChip key={g} active={filter === g} onClick={() => setFilter(g)}>
-                <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full" style={{ background: GROUP_COLORS[g] }} />
+                <span
+                  className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full"
+                  style={{ background: GROUP_COLORS[g] }}
+                />
                 {g}
               </FilterChip>
             ))}
@@ -86,14 +91,18 @@ export function SkillsGraph() {
           <div className="hairline overflow-hidden rounded-2xl bg-surface-elevated/40">
             <svg viewBox={`0 0 ${W} ${H}`} className="h-[560px] w-full">
               {portfolio.skillEdges.map(([a, b], i) => {
-                const pa = positions[a], pb = positions[b];
+                const pa = positions[a],
+                  pb = positions[b];
                 if (!pa || !pb) return null;
                 const active = hover && (a === hover || b === hover);
                 const dim = filter !== "all" && pa.group !== filter && pb.group !== filter;
                 return (
                   <line
                     key={i}
-                    x1={pa.x} y1={pa.y} x2={pb.x} y2={pb.y}
+                    x1={pa.x}
+                    y1={pa.y}
+                    x2={pb.x}
+                    y2={pb.y}
                     stroke={active ? "var(--brand)" : "oklch(1 0 0)"}
                     strokeOpacity={dim ? 0.04 : active ? 0.6 : 0.12}
                     strokeWidth={active ? 1.4 : 1}
@@ -115,14 +124,17 @@ export function SkillsGraph() {
                     opacity={dim ? 0.2 : 1}
                   >
                     <motion.circle
-                      cx={p.x} cy={p.y} r={highlight ? 22 : 16}
+                      cx={p.x}
+                      cy={p.y}
+                      r={highlight ? 22 : 16}
                       fill={color}
                       fillOpacity={highlight ? 0.25 : 0.12}
                       animate={{ r: highlight ? 22 : 16 }}
                     />
                     <circle cx={p.x} cy={p.y} r={5} fill={color} />
                     <text
-                      x={p.x} y={p.y - 14}
+                      x={p.x}
+                      y={p.y - 14}
                       textAnchor="middle"
                       className="fill-foreground font-mono"
                       fontSize={11}
@@ -140,15 +152,25 @@ export function SkillsGraph() {
             {groups.map((g) => (
               <div key={g} className="hairline rounded-xl p-4">
                 <div className="mb-2 flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full" style={{ background: GROUP_COLORS[g] }} />
-                  <h4 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">{g}</h4>
+                  <span
+                    className="h-1.5 w-1.5 rounded-full"
+                    style={{ background: GROUP_COLORS[g] }}
+                  />
+                  <h4 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">
+                    {g}
+                  </h4>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
-                  {portfolio.skills.filter((s) => s.group === g).map((s) => (
-                    <span key={s.id} className="rounded-full border border-hairline px-2 py-0.5 text-xs text-foreground">
-                      {s.label}
-                    </span>
-                  ))}
+                  {portfolio.skills
+                    .filter((s) => s.group === g)
+                    .map((s) => (
+                      <span
+                        key={s.id}
+                        className="rounded-full border border-hairline px-2 py-0.5 text-xs text-foreground"
+                      >
+                        {s.label}
+                      </span>
+                    ))}
                 </div>
               </div>
             ))}
@@ -159,7 +181,15 @@ export function SkillsGraph() {
   );
 }
 
-function FilterChip({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
+function FilterChip({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
   return (
     <button
       onClick={onClick}

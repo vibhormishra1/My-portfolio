@@ -23,40 +23,43 @@ Ensure you have Node.js and npm installed. If you need to manage multiple enviro
 Installation & Execution
 
 # Clone the repository
+
 git clone <com/vibhormishra1/My-portfolio>
 
 # Navigate into the project directory
+
 cd <My-portfolio>
 
 # Install the required dependencies
+
 npm i
 
 # Boot up the local development server
+
 npm run dev
 
 Once execution completes, the local development server will spin up. Open your terminal's local address link (typically http://localhost:3000) to view the application.
 
 📂 Repository Structure Overview
-├── public/             # Static assets, vector icons, and images
+├── public/ # Static assets, vector icons, and images
 ├── src/
-│   ├── assets/         # Media files and project graphics
-│   ├── components/     # Component UI library
-│   │   ├── portfolio/  # Portfolio-specific section components
-│   │   └── ui/         # Reusable shadcn / Radix UI primitives
-│   ├── data/           # Static data models (projects, blog posts, personal metadata)
-│   ├── hooks/          # Custom React hooks
-│   ├── lib/            # Utility functions and helper modules
-│   ├── routes/         # TanStack file-based routing pages and navigation layouts
-│   ├── routeTree.gen.ts # Auto-generated TanStack Router tree definition
-│   ├── router.tsx      # TanStack Router configuration
-│   ├── server.ts       # TanStack Start server entry point
-│   ├── start.ts        # TanStack Start client entry point
-│   └── styles.css      # Global CSS directives and Tailwind configuration
-├── components.json     # shadcn/ui configuration metadata
-├── package.json        # Project dependencies, scripts, and package orchestration
-├── tsconfig.json       # TypeScript compiler settings
-└── vite.config.ts      # Vite bundler and TanStack plugin setup
-
+│ ├── assets/ # Media files and project graphics
+│ ├── components/ # Component UI library
+│ │ ├── portfolio/ # Portfolio-specific section components
+│ │ └── ui/ # Reusable shadcn / Radix UI primitives
+│ ├── data/ # Static data models (projects, blog posts, personal metadata)
+│ ├── hooks/ # Custom React hooks
+│ ├── lib/ # Utility functions and helper modules
+│ ├── routes/ # TanStack file-based routing pages and navigation layouts
+│ ├── routeTree.gen.ts # Auto-generated TanStack Router tree definition
+│ ├── router.tsx # TanStack Router configuration
+│ ├── server.ts # TanStack Start server entry point
+│ ├── start.ts # TanStack Start client entry point
+│ └── styles.css # Global CSS directives and Tailwind configuration
+├── components.json # shadcn/ui configuration metadata
+├── package.json # Project dependencies, scripts, and package orchestration
+├── tsconfig.json # TypeScript compiler settings
+└── vite.config.ts # Vite bundler and TanStack plugin setup
 
 📄 License
 This repository is open-source and available under the MIT License.

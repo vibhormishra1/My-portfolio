@@ -76,7 +76,9 @@ export function GithubActivity() {
           <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
             {/* Contribution graph */}
             <div className="hairline rounded-2xl bg-surface-elevated/40 p-6">
-              <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">Contributions · last year</h4>
+              <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">
+                Contributions · last year
+              </h4>
               {data.contributions ? (
                 <ContributionGrid c={data.contributions} />
               ) : (
@@ -86,20 +88,29 @@ export function GithubActivity() {
 
             {/* Languages */}
             <div className="hairline rounded-2xl bg-surface-elevated/40 p-6">
-              <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">Top languages</h4>
+              <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">
+                Top languages
+              </h4>
               {data.languages.length === 0 ? (
                 <p className="text-sm text-ink-muted">No languages detected yet.</p>
               ) : (
                 <>
                   <div className="flex h-3 overflow-hidden rounded-full">
                     {data.languages.map((l) => (
-                      <div key={l.name} style={{ width: `${l.pct}%`, background: langColor(l.name) }} title={`${l.name} ${l.pct.toFixed(1)}%`} />
+                      <div
+                        key={l.name}
+                        style={{ width: `${l.pct}%`, background: langColor(l.name) }}
+                        title={`${l.name} ${l.pct.toFixed(1)}%`}
+                      />
                     ))}
                   </div>
                   <ul className="mt-4 grid grid-cols-2 gap-2 text-xs">
                     {data.languages.map((l) => (
                       <li key={l.name} className="flex items-center gap-2 text-ink-muted">
-                        <span className="h-2 w-2 rounded-full" style={{ background: langColor(l.name) }} />
+                        <span
+                          className="h-2 w-2 rounded-full"
+                          style={{ background: langColor(l.name) }}
+                        />
                         <span className="text-foreground">{l.name}</span>
                         <span className="ml-auto font-mono">{l.pct.toFixed(1)}%</span>
                       </li>
@@ -142,13 +153,18 @@ export function GithubActivity() {
                   className="hairline group rounded-xl p-4 transition-colors hover:bg-surface-elevated"
                 >
                   <div className="flex items-center justify-between">
-                    <p className="font-mono text-sm text-foreground group-hover:text-brand">{r.name}</p>
+                    <p className="font-mono text-sm text-foreground group-hover:text-brand">
+                      {r.name}
+                    </p>
                     <span className="font-mono text-xs text-ink-muted">★ {r.stars}</span>
                   </div>
                   {r.description && <p className="mt-2 text-xs text-ink-muted">{r.description}</p>}
                   {r.language && (
                     <p className="mt-3 flex items-center gap-1.5 font-mono text-[10px] text-ink-muted">
-                      <span className="h-1.5 w-1.5 rounded-full" style={{ background: langColor(r.language) }} />
+                      <span
+                        className="h-1.5 w-1.5 rounded-full"
+                        style={{ background: langColor(r.language) }}
+                      />
                       {r.language}
                     </p>
                   )}
@@ -159,20 +175,27 @@ export function GithubActivity() {
 
           {/* Recent commits */}
           <div>
-            <h4 className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">Recent commits</h4>
+            <h4 className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">
+              Recent commits
+            </h4>
             <div className="hairline divide-y divide-hairline rounded-2xl bg-surface-elevated/40">
               {data.events
                 .filter((e) => e.type === "PushEvent")
                 .slice(0, 5)
                 .map((e) => {
-                  const commits: any[] = e.payload?.commits ?? [];
+                  const payload = e.payload as {
+                    commits?: { sha?: string; message?: string }[];
+                  };
+                  const commits = payload?.commits ?? [];
                   return (
                     <div key={e.id} className="p-4 text-sm">
                       <p className="font-mono text-xs text-brand">{e.repo.name}</p>
                       <ul className="mt-1 space-y-0.5 text-ink-muted">
                         {commits.slice(0, 3).map((c, i) => (
                           <li key={i} className="truncate">
-                            <span className="font-mono text-xs text-ink-muted">{(c.sha ?? "").slice(0, 7)}</span>{" "}
+                            <span className="font-mono text-xs text-ink-muted">
+                              {(c.sha ?? "").slice(0, 7)}
+                            </span>{" "}
                             <span className="text-foreground">{c.message}</span>
                           </li>
                         ))}
@@ -205,10 +228,17 @@ function ContributionGrid({ c }: { c: ContributionsResponse }) {
   const items = c.contributions;
   const first = new Date(items[0]?.date ?? Date.now());
   const startOffset = first.getDay();
-  const cells: ({ date: string; level: number } | null)[] = Array(startOffset).fill(null).concat(items as any);
+  type DayCell = { date: string; count?: number; level: number } | null;
+  const cells: DayCell[] = Array<DayCell>(startOffset).fill(null).concat(items);
   const weeks: (typeof cells)[] = [];
   for (let i = 0; i < cells.length; i += 7) weeks.push(cells.slice(i, i + 7));
-  const levels = ["oklch(1 0 0 / 5%)", "oklch(0.55 0.09 250)", "oklch(0.62 0.12 250)", "oklch(0.7 0.14 250)", "oklch(0.8 0.16 250)"];
+  const levels = [
+    "oklch(1 0 0 / 5%)",
+    "oklch(0.55 0.09 250)",
+    "oklch(0.62 0.12 250)",
+    "oklch(0.7 0.14 250)",
+    "oklch(0.8 0.16 250)",
+  ];
   return (
     <div className="overflow-x-auto">
       <svg width={weeks.length * 12} height={7 * 12} className="min-w-full">
@@ -222,9 +252,11 @@ function ContributionGrid({ c }: { c: ContributionsResponse }) {
                 width={10}
                 height={10}
                 rx={2}
-                fill={levels[(d as any).level ?? 0]}
+                fill={levels[d.level ?? 0]}
               >
-                <title>{(d as any).date}: {(d as any).count} contributions</title>
+                <title>
+                  {d.date}: {d.count ?? 0} contributions
+                </title>
               </rect>
             ) : null,
           ),

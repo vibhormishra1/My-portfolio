@@ -20,11 +20,19 @@ export function SiteNav() {
         <div className="hidden items-center gap-6 md:flex">
           {links.map((l) =>
             l.href.startsWith("/#") ? (
-              <a key={l.href} href={l.href} className="text-ink-muted transition-colors hover:text-foreground">
+              <a
+                key={l.href}
+                href={l.href}
+                className="text-ink-muted transition-colors hover:text-foreground"
+              >
                 {l.label}
               </a>
             ) : (
-              <Link key={l.href} to={l.href} className="text-ink-muted transition-colors hover:text-foreground">
+              <Link
+                key={l.href}
+                to={l.href}
+                className="text-ink-muted transition-colors hover:text-foreground"
+              >
                 {l.label}
               </Link>
             ),
@@ -71,9 +79,25 @@ export function SiteFooter() {
           </div>
           <div className="flex flex-col items-start gap-3 md:items-end">
             <div className="flex gap-4 text-sm text-ink-muted">
-              <a href="https://github.com/vibhormishra1" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">GitHub</a>
-              <a href="https://www.linkedin.com/in/vibhormishra1/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">LinkedIn</a>
-              <a href="mailto:vibhormishra0705@gmail.com" className="hover:text-foreground">Email</a>
+              <a
+                href="https://github.com/vibhormishra1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-foreground"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/vibhormishra1/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-foreground"
+              >
+                LinkedIn
+              </a>
+              <a href="mailto:vibhormishra0705@gmail.com" className="hover:text-foreground">
+                Email
+              </a>
             </div>
             <p className="font-mono text-xs text-ink-muted">
               © {new Date().getFullYear()} Vibhor Mishra
@@ -102,7 +126,9 @@ export function SectionHeading({
   return (
     <div id={id} className="mb-12 max-w-2xl scroll-mt-28">
       <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand">{eyebrow}</p>
-      <Heading className="mt-3 font-display text-3xl leading-tight text-foreground md:text-5xl">{title}</Heading>
+      <Heading className="mt-3 font-display text-3xl leading-tight text-foreground md:text-5xl">
+        {title}
+      </Heading>
     </div>
   );
 }

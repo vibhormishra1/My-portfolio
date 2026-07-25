@@ -30,7 +30,9 @@ export function AIPlayground() {
               key={i}
               onClick={() => ask(i)}
               className={`rounded-full border px-3 py-1.5 font-mono text-xs transition-colors ${
-                selected === i ? "border-brand bg-brand/10 text-foreground" : "border-hairline text-ink-muted hover:text-foreground"
+                selected === i
+                  ? "border-brand bg-brand/10 text-foreground"
+                  : "border-hairline text-ink-muted hover:text-foreground"
               }`}
             >
               {s.q}
@@ -52,7 +54,9 @@ export function AIPlayground() {
               className="mt-4 border-t border-hairline pt-4"
             >
               <div className="flex items-start gap-3">
-                <span className="mt-0.5 rounded-full bg-brand/20 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-brand">ai</span>
+                <span className="mt-0.5 rounded-full bg-brand/20 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-brand">
+                  ai
+                </span>
                 <p className="text-foreground">{suggestions[selected].a}</p>
               </div>
             </motion.div>
@@ -70,7 +74,8 @@ export function BlogPreview() {
       <SectionHeading eyebrow="Writing" title="Technical blog" id="blog" />
       {posts.length === 0 ? (
         <div className="hairline rounded-2xl border-dashed p-8 text-sm text-ink-muted">
-          <span className="font-mono text-xs text-brand">TODO</span> — Add blog posts to portfolio-data.ts → blog
+          <span className="font-mono text-xs text-brand">TODO</span> — Add blog posts to
+          portfolio-data.ts → blog
         </div>
       ) : (
         <div className="grid gap-4 md:grid-cols-3">
@@ -85,7 +90,10 @@ export function BlogPreview() {
               <p className="mt-2 text-sm text-ink-muted">{p.excerpt}</p>
               <div className="mt-4 flex flex-wrap gap-1.5">
                 {p.tags.map((t) => (
-                  <span key={t} className="rounded-full border border-hairline px-2 py-0.5 font-mono text-[10px] text-ink-muted">
+                  <span
+                    key={t}
+                    className="rounded-full border border-hairline px-2 py-0.5 font-mono text-[10px] text-ink-muted"
+                  >
                     {t}
                   </span>
                 ))}

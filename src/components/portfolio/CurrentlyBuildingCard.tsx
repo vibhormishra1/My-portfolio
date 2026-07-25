@@ -36,7 +36,12 @@ function formatRelative(iso: string): string {
 }
 
 function useRepo(repo: string | undefined) {
-  const [data, setData] = useState<{ repo: RepoData | null; commit: CommitData | null; error: boolean; loading: boolean }>({
+  const [data, setData] = useState<{
+    repo: RepoData | null;
+    commit: CommitData | null;
+    error: boolean;
+    loading: boolean;
+  }>({
     repo: null,
     commit: null,
     error: false,
@@ -99,7 +104,9 @@ function Card({ item }: { item: CurrentlyBuilding }) {
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-75" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
         </span>
-        <span className="font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">{item.status}</span>
+        <span className="font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">
+          {item.status}
+        </span>
       </div>
 
       <h3 className="mt-4 font-display text-2xl text-foreground">{item.name}</h3>
@@ -107,13 +114,17 @@ function Card({ item }: { item: CurrentlyBuilding }) {
 
       <div className="mt-6 space-y-3 border-t border-hairline pt-4 text-sm">
         <div>
-          <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-muted">Current milestone</div>
+          <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-muted">
+            Current milestone
+          </div>
           <p className="mt-1 text-foreground">{item.milestone}</p>
         </div>
 
         <div className="grid grid-cols-2 gap-3 pt-1">
           <div>
-            <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-muted">Last commit</div>
+            <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-muted">
+              Last commit
+            </div>
             <p className="mt-1 truncate text-xs text-foreground" title={commit?.commit.message}>
               {loading
                 ? "Loading…"
@@ -125,7 +136,9 @@ function Card({ item }: { item: CurrentlyBuilding }) {
             </p>
           </div>
           <div>
-            <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-muted">Last updated</div>
+            <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-muted">
+              Last updated
+            </div>
             <p className="mt-1 text-xs text-foreground">
               {loading
                 ? "Loading…"
@@ -137,7 +150,9 @@ function Card({ item }: { item: CurrentlyBuilding }) {
         </div>
 
         <div className="flex items-center justify-between pt-1">
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand">{statusLabel}</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand">
+            {statusLabel}
+          </span>
           {repo ? (
             <a
               href={repo.html_url}

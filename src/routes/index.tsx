@@ -1,10 +1,26 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteNav, SiteFooter } from "@/components/portfolio/Chrome";
 import { Hero } from "@/components/portfolio/Hero";
-import { ImpactMetrics, CurrentlyBuilding, Mission, Timeline } from "@/components/portfolio/HeroSections";
-import { HighlightProjects, ResearchInterests, SystemDesignSection } from "@/components/portfolio/ProjectsSection";
+import {
+  ImpactMetrics,
+  CurrentlyBuilding,
+  Mission,
+  Timeline,
+} from "@/components/portfolio/HeroSections";
+import {
+  HighlightProjects,
+  ResearchInterests,
+  SystemDesignSection,
+} from "@/components/portfolio/ProjectsSection";
 import { SkillsGraph } from "@/components/portfolio/SkillsGraph";
-import { Experience, Education, Hackathons, IndustrySimulations, Certifications, Achievements } from "@/components/portfolio/ResumeSections";
+import {
+  Experience,
+  Education,
+  Hackathons,
+  IndustrySimulations,
+  Certifications,
+  Achievements,
+} from "@/components/portfolio/ResumeSections";
 import { GithubActivity } from "@/components/portfolio/GithubActivity";
 import { AIPlayground, BlogPreview } from "@/components/portfolio/AIPlayground";
 import { ContactTerminal } from "@/components/portfolio/ContactTerminal";
@@ -21,7 +37,8 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Vibhor Mishra — AI & Software Engineer" },
       {
         property: "og:description",
-        content: "Building intelligent software systems with agentic AI and multi-agent architectures.",
+        content:
+          "Building intelligent software systems with agentic AI and multi-agent architectures.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },

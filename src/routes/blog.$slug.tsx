@@ -55,7 +55,9 @@ function BlogPost() {
             ← Blog
           </Link>
           <p className="mt-6 font-mono text-xs text-brand">{post.date}</p>
-          <h1 className="mt-2 font-display text-4xl leading-tight text-foreground md:text-5xl">{post.title}</h1>
+          <h1 className="mt-2 font-display text-4xl leading-tight text-foreground md:text-5xl">
+            {post.title}
+          </h1>
           <div
             className="prose prose-invert mt-10 max-w-none text-foreground [&_h2]:font-display [&_h2]:text-2xl [&_h2]:mt-10 [&_h3]:font-display [&_h3]:mt-8 [&_p]:mt-4 [&_p]:text-ink-muted [&_a]:text-brand [&_code]:font-mono [&_pre]:bg-surface-elevated [&_pre]:rounded-xl [&_pre]:p-4"
             dangerouslySetInnerHTML={{ __html: html }}

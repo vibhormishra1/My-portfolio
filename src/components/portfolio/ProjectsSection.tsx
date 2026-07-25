@@ -11,7 +11,10 @@ export function HighlightProjects() {
     <section id="projects" className="mx-auto max-w-6xl scroll-mt-28 px-6 py-24">
       <div className="flex items-end justify-between gap-6">
         <SectionHeading eyebrow="Featured work" title="Systems I've designed and shipped" />
-        <Link to="/projects" className="hidden shrink-0 font-mono text-sm text-brand hover:text-foreground md:inline">
+        <Link
+          to="/projects"
+          className="hidden shrink-0 font-mono text-sm text-brand hover:text-foreground md:inline"
+        >
           All projects →
         </Link>
       </div>
@@ -34,7 +37,9 @@ export function HighlightProjects() {
               >
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-brand">{p.category}</span>
+                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-brand">
+                      {p.category}
+                    </span>
                     {p.status && (
                       <span className="font-mono text-[10px] uppercase tracking-widest text-ink-muted">
                         {p.status}
@@ -47,12 +52,17 @@ export function HighlightProjects() {
                 </div>
                 <div className="mt-8 flex flex-wrap gap-1.5">
                   {p.stack.slice(0, 5).map((s) => (
-                    <span key={s} className="rounded-full border border-hairline px-2.5 py-0.5 font-mono text-[10px] text-ink-muted">
+                    <span
+                      key={s}
+                      className="rounded-full border border-hairline px-2.5 py-0.5 font-mono text-[10px] text-ink-muted"
+                    >
                       {s}
                     </span>
                   ))}
                   {p.stack.length > 5 && (
-                    <span className="font-mono text-[10px] text-ink-muted">+{p.stack.length - 5} more</span>
+                    <span className="font-mono text-[10px] text-ink-muted">
+                      +{p.stack.length - 5} more
+                    </span>
                   )}
                 </div>
               </Link>
